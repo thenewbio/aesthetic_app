@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "772106917202",
+    "project_id": "hive-b1245",
+    "storage_bucket": "hive-b1245.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772106917202:android:b69b349629af0b5dcb968b",
+        "android_client_info": {
+          "package_name": "com.example.aesthetic_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772106917202-ael4ffpv3rvru9rh1jif7j74a0nldv0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aesthetic_app",
+            "certificate_hash": "a70bdd7da9bc59b5dee1277093a472eafdd367ff"
+          }
+        },
+        {
+          "client_id": "772106917202-b7j9km7r0uki74f38e29b42hmm9gtb7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_kt17n0DZtfMfdJC1XAwgPvQYVt9jc3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772106917202-b7j9km7r0uki74f38e29b42hmm9gtb7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
