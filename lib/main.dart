@@ -30,11 +30,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   final SharedPreferences prefs;
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-
   MyApp({Key? key, required this.prefs}) : super(key: key);
-
-  // final FirebaseStorage firebaseStorage = FirebaseStorage.instance;
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -43,13 +39,14 @@ class MyApp extends StatelessWidget {
             create: (_) => AuthProvider(
                 signIn: GoogleSignIn(),
                 firebaseAuth: FirebaseAuth.instance,
+                // ignore: unnecessary_this
                 firestore: this.firebaseFirestore,
                 prefs: prefs)),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Aesthetic',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.green,
         ),
         home: const AnimatedSplashScreen(),
       ),

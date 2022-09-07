@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/user_model.dart';
+import '../screens/onboarding_screen.dart';
 import '../utils/firestore_utils.dart';
 
 enum Status {
@@ -70,7 +70,6 @@ class AuthProvider extends ChangeNotifier {
             FirestoreConstants.photoUrl: firebaseUser.photoURL,
             FirestoreConstants.id: firebaseUser.uid,
             'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
-            FirestoreConstants.chattingWith: null
           });
           User? currentUser = firebaseUser;
           await prefs.setString(FirestoreConstants.id, currentUser.uid);
@@ -84,7 +83,6 @@ class AuthProvider extends ChangeNotifier {
           DocumentSnapshot documentSnapshot = document[0];
           UserChat userChat = UserChat.fromDocument(documentSnapshot);
           await prefs.setString(FirestoreConstants.id, userChat.id);
-          await prefs.setString(FirestoreConstants.nickname, userChat.nickname);
           await prefs.setString(FirestoreConstants.photoUrl, userChat.photoUrl);
           await prefs.setString(FirestoreConstants.aboutMe, userChat.aboutMe);
           await prefs.setString(
@@ -105,10 +103,12 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> handleLogOut() async {
+  Future<void> handleLogOut(context) async {
     _status = Status.uninitialsed;
     await firebaseAuth.signOut();
     await signIn.disconnect();
     await signIn.signOut();
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (_) => OnboardingScreen()));
   }
 }
